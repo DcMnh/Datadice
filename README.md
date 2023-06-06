@@ -1,5 +1,5 @@
 
-# Database Management Project
+# Datadice
 
 ## Description
 This project involves creating a database from scratch, populating it with test data, running various queries, and creating dynamic views. It aims to demonstrate understanding and proficiency in using DDL commands, data manipulation, and query writing in a database management system.
