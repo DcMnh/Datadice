@@ -1,0 +1,26 @@
+-- Assignment2_Views
+-- Group: Joshua Hidocos, Hayden Martens, Duy Duc Minh Vo 
+-- Description: This SQL script performs multiple queries to create views for specific task
+
+
+
+
+
+--TASK 1: A dynamic view for query 4 in the previous task
+--Displays price and description for any item that costs 12.50 or 16.90)
+
+CREATE VIEW	Task4_V AS
+SELECT 		price, description 
+FROM 			menu 
+WHERE 		price = 12.50 OR price = 16.90;
+
+
+
+--TASK 2: A dynamic view for query 9 in the previous task
+--Calculate the number of payments for each payment method to see if any of them have the number of payments equal or less than 1, group by payment method.)
+
+CREATE VIEW	Task9_V AS
+SELECT 		COUNT(paymentid), paymentmethod
+FROM 			payments
+GROUP 		BY paymentmethod
+HAVING 		COUNT(paymentid) <= 1

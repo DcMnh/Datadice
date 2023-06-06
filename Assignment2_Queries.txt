@@ -1,0 +1,104 @@
+--Assignment2_Queries
+--Group: Joshua Hidocos, Hayden Martens, Duy Duc Minh Vo 
+--Description: This SQL script performs multiple queries to see if the data in each table can be pulled correctly 
+
+
+
+
+
+--TASK 1: A simple query that pulls all columns and rows from a table
+-- Displays all columns in the orders table 
+
+SELECT 		* 
+FROM 		orders;
+
+-- TASK 2: A query that displays a subset of columns
+--Displays the payment id and amount from the payments table 
+
+SELECT 		paymentid, amount 
+FROM 		payments;
+
+
+--TASK 3: A query that displays a subset of columns with a single clause (predicate) WHERE statement
+-- Displays price and description for any items that costs $12.50
+
+SELECT 		price, description
+FROM 		menu
+WHERE 		price = 12.50;
+
+
+-- TASK4: A query that displays a subset of columns with a multi-clause (predicate) WHERE statement using AND/OR
+-- Displays price and description for any item that costs 12.50 or 16.90
+
+SELECT 		price, description 
+FROM 		menu 
+WHERE 		price = 12.50 OR price = 16.90;
+
+
+
+-- TASK 5:A query that performs a single table join.  In other words, you are joining 2 tables.
+-- Displays delivertiem, order id and order time 
+
+SELECT 		deliveries.delivertime, orders.orderid, orders.ordertime
+FROM 		orders
+INNER JOIN deliveries 
+ON orders.orderid = deliveries.orderid;
+
+
+
+--TASK 6: A query that performs a multi-table join. In other words, you are joining 3 or more tables.
+-- Displays menu order, payment amount and delivery address and is limited to 10 rows
+
+SELECT 		orders.menuorder, payments.amount, deliveries.address
+FROM 		orders
+INNER JOIN payments 
+INNER JOIN deliveries ON Orders.orderid = deliveries.orderid
+LIMIT 10;
+
+
+
+--TASK 7: A query that performs an aggregate (count, min, max, sum, avg, etc.).
+-- Calculate the Sum of amount from all orders
+
+SELECT 	 	SUM(amount)
+FROM 		payments;
+
+
+
+--TASK 8: A query that performs an aggregate (count, min, max, sum, avg, etc.) with a GROUP BY.
+-- Calculate number or orders group by order date
+
+SELECT 	 	COUNT(orderid), ordertime
+FROM 		orders
+GROUP BY 	ordertime;
+
+
+
+TASK 9: A query that performs an aggregate (count, min, max, sum, avg, etc.). with a GROUP BY and a HAVING clause
+-- Calculate the number of payments for each payment method to see if any of them have the number of payments equal or less than 1, group by payment method.
+
+SELECT 		COUNT(paymentid), paymentmethod
+FROM 		payments
+GROUP BY	paymentmethod
+HAVING 		COUNT(paymentid) <= 1
+
+
+
+--TASK 10: A query that performs a subquery either as part of the WHERE clause or as a derived/virtual table.
+-- Display the delivery address of a specific area, drivers who performed the deliveries have a driverid less than or equal 3
+
+SELECT		address
+FROM 		deliveries
+WHERE		driverid IN (SELECT 	driverid
+						FROM 		deliveries
+						WHERE 		driverid <= 3)
+
+
+
+--TASK 11: A query that performs an aggregate with a join and a group by.
+-- Display the details of an order( foods, amount, order date) which have the highest amount of the day, group by ordertime
+
+SELECT	 	orders.menuorder, orders.ordertime, MAX(payments.amount)
+FROM 		orders JOIN payments
+ON    		orders.paymentid = payments.paymentid
+GROUP BY 	ordertime
