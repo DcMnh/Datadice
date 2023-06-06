@@ -1,0 +1,25 @@
+use assignment021; 
+-- Joshua Hidocos 
+
+-- Description: This SQL script popluates the tables that were created 
+
+-- Inserts values in the deliveries table 
+INSERT INTO deliveries VALUES (1,'42 Majestic Dr',3,'2022-12-14'),(2,'87 Rodon St',3,'2022-12-14'),(3,'67 Yankee Ave',8,'2022-12-14'),(4,'1509 York Ave',5,'2022-12-14'),
+(5,'34 Fallowfield Rd',2,'2022-12-14'),(6,'56 Gateway Dr',1,'2022-12-14'),(7,'23 Windmill Way',1,'2022-12-14'),(8,'78 Stone Dr',2,'2022-12-14');
+
+-- Inserts values into the employees table 
+INSERT INTO employees VALUES (1,'John Smith','1+613-678-90','45 Hank way'),(2,'Jenna Row','1+414-676-80','23 Log Rd'),(3,'Luke Lu','1+613-901-50','1510 Walkley Rd'),(4,'Tom Wright','1+613-123-87','67 Followfield Rd'),
+(5,'Bella Knox','1+343-676-97','14 Mills ave'),(6,'Jacob Quinn','1+613-555-45','62 Saints Row'),(7,'Alexis Lee','1+613-354-90','66 York ave'),(8,'Lucy He','1+613-675-10','8001 Moodie Dr');
+
+-- Inserts values into the menu table 
+INSERT INTO menu VALUES (1,'12.5','Baked Lasagna'),(2,'12.9','Cannelloni'),(3,'12.5','Chicken Nuggets W/ French Fries & Colwslaw'),(4,'16.9','Chicken Parmigiana'),
+(5,'12.5','Chicken Fingers W/ French Fries & Coleslaw'),(6,'12.5','Chicken Wings 1LB'),(7,'4.25','Garlic Bread W/ Cheese'),(8,'11.9','Zucchini');
+
+-- Inserts values into the orders table 
+INSERT INTO orders VALUES (1,'Baked Lasagna & Cannelloni',1,'1+613-474-45','2022-12-14'),(2,'Chicken Nuggets',2,'1+613-410-78','2022-12-14'),(3,'Chicken Fingers, Baked Lasagna',3,'1+613-454-90','2022-12-14'),(4,'Zucchini & Chicken Nuggets',4,'1+613-345-78','2022-12-15'),
+(5,'Chicken Wings 1LB',5,'1+613-787-87','2022-12-15'),(6,'Chicken Parmigiana',6,'1+613-343-67','2022-12-15'),(7,'Canneloni & Chicken Fingers',7,'1+613-987-80','2022-12-15'),(8,'Chicken Nuggets & Chicken Fing',8,'1+613-565-43','2022-12-15');
+
+-- Inserts values into the payments table 
+INSERT INTO payments VALUES (1,'Cash',201),(2,'Credit',17),(3,'Debit',55),(4,'Cash',78),
+(5,'Cash',5),(6,'Credit',99),(7,'Credit',20),(8,'Credit',25);
+
